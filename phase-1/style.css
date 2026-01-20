@@ -1,0 +1,105 @@
+*{
+    font-size: 1.04em;
+    padding: 0;
+    margin: 0;
+}
+
+/* Header */
+
+header{
+    display: flex;
+    flex-direction: column;
+}
+
+/* Discount */
+
+#discountSec{
+    background-color: #443ede;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 0.6em;
+    font-size: 1em;
+    color: white;
+}
+
+/* DiscountEnd */
+
+/* Search */
+
+#searchSection{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    padding: 1em 0em;
+}
+
+#searchLogo{
+    width: 11em;
+}
+
+#searchLabel{
+    border: 2px solid #c9d4fc;
+    border-radius: 2em;
+    padding: 0.3em;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    width: 25em;
+}
+
+#searchBtn{
+    background-color: #443ede;
+    border: none;
+    border-radius: 100%;
+    display: flex;
+    justify-content: center;
+    padding: 0.4em;
+}
+
+#searchInput{
+    border: none;
+    border-radius: 2em;
+    width: 25em;
+}
+
+#searchInput:focus{
+    outline: none;
+}
+
+/* SearchEnd */
+
+/* Navigation */
+
+nav{
+    display: flex;
+    flex-direction: row;
+    background-color: #f6f6f6;
+    padding: 1em;
+    justify-content: center;
+    gap: 3em;
+}
+
+.navSpan{
+    display: flex;
+    font-size: 1.1em;
+    color: #4f4f4f;
+    flex-direction: row;
+    align-items: center;
+    >img{
+        width: 1em;
+    }
+}
+
+/* NavigationEnd */
+
+#headerBtn{
+    background-color: #443ede;
+    border: none;
+    border-radius: 2em;
+    color: white;
+    padding: 0.5em 1.5em 0.5em 1.5em;
+}
+
+/* HeaderEnd */
