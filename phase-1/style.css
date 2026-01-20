@@ -139,3 +139,30 @@ nav{
         font-size: 1.2em;
     }
 }
+
+/* ---HeroSectionEnd--- */
+
+/* TrustSection */
+
+#trustSec{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: #f3f7ff;
+    padding: 3em;
+    gap: 2em;
+    >h2{
+        font-size: 1.5em;
+        >span{
+            color: #443ede;
+            text-decoration: solid underline;
+        }
+    }
+}
+
+
+#trustLogo{
+    display: flex;
+    flex-direction: row;
+    gap: 4em;
+}
