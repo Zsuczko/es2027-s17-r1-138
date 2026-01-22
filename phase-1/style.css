@@ -9,7 +9,7 @@
     font-size: 1.04em;
     padding: 0;
     margin: 0;
-    overflow-x: hidden;
+    /* overflow-x: hidden; */
 }
 
 .avgBtn{
@@ -420,5 +420,56 @@ nav{
 
             color: #4f4f4f;
         }
+    }
+}
+
+
+/* ---WhatSectionEnd--- */
+
+/* ---MainEnd--- */
+
+/* Footer */
+
+footer{
+    background-color: #f3f7ff;
+    padding: 4em 3em;
+    display: flex;
+    flex-direction: column;
+    gap: 1em;
+}
+
+hr{
+    border-top: #c9d4fc 2px solid;
+}
+#footerInfo{
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    >span{
+        >h2{
+            color: var(--primaryH1);
+            font-size: 1.1em;
+            margin-bottom: 0.5em;
+        }
+        >ul{
+            list-style-type: none;
+            color: var(--secondaryCrl);
+            display: flex;
+            flex-direction: column;
+            gap: 0.3em;
+        }
+    }
+}
+
+#footLast{
+    color: var(--secondaryCrl);
+    display: flex;
+    justify-content: space-between;
+}
+
+#footIcons{
+    display: flex;
+    gap: 1em;
+    >img{
+        width: 1.5em;
     }
 }
