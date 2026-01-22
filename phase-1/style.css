@@ -1,3 +1,10 @@
+:root{
+    --primaryBlue: #443ede;
+    --primaryH1: #3d3d3d;
+    --secondaryCrl: #6d6d6d;
+}
+
+
 *{
     font-size: 1.04em;
     padding: 0;
@@ -5,7 +12,7 @@
 }
 
 .avgBtn{
-    background-color: #443ede;
+    background-color: var(--primaryBlue);
     border: none;
     border-radius: 2em;
     color: white;
@@ -23,7 +30,7 @@ header{
 /* Discount */
 
 #discountSec{
-    background-color: #443ede;
+    background-color: var(--primaryBlue);
     display: flex;
     justify-content: center;
     align-items: center;
@@ -59,7 +66,7 @@ header{
 }
 
 #searchBtn{
-    background-color: #443ede;
+    background-color: var(--primaryBlue);
     border: none;
     border-radius: 100%;
     display: flex;
@@ -129,13 +136,13 @@ nav{
         line-height: 1.2em;
     
         >span{
-            color: #443ede;
+            color: var(--primaryBlue);
         }
     }
 
     >h2{
         line-height: 1.4em;
-        color: #6d6d6d;
+        color: var(--secondaryCrl);
         font-size: 1.2em;
     }
 }
@@ -154,7 +161,7 @@ nav{
     >h2{
         font-size: 1.5em;
         >span{
-            color: #443ede;
+            color: var(--primaryBlue);
             text-decoration: solid underline;
         }
     }
@@ -165,4 +172,219 @@ nav{
     display: flex;
     flex-direction: row;
     gap: 4em;
+}
+
+/* ---TrustSectionEnd--- */
+
+/* TrendingSection */
+
+#trendingSec{
+    padding: 5em 3em;
+    >h1{
+        font-size: 2em;
+        margin-bottom: 0.4em;
+        color: var(--primaryH1);
+    }
+    >h2{
+        color: var(--secondaryCrl);
+    }
+}
+
+.trendingCard{
+
+    border: #e8e6e6 2px solid;
+    width: fit-content;
+    padding: 0.5em;
+    border-radius: 0.5em;
+
+    >img{
+        border-radius: 0.5em;
+    }
+
+    >h2{
+        color: var(--primaryH1);
+    }
+    >h3{
+        color: var(--secondaryCrl);
+    }
+}
+
+.trendingRating{
+    display: flex;
+    /* flex-direction: column; */
+    justify-content: space-between;
+}
+
+/* ---TrendingSectionEnd--- */
+
+/* TopDealSection */
+
+
+
+/* ---TopDealSectionEnd--- */
+
+/* BenefitSection */
+
+#benefitSec{
+    display: flex;
+    justify-content: space-between;
+    gap: 7em;
+    padding: 3em;
+}
+
+#benefitSecond{
+    display: flex;
+    flex-direction: column;
+    gap: 2em;
+    margin-top: 4em;
+}
+
+.benefitDiv{
+
+    display: flex;
+    flex-direction: column;
+    gap: 0.3em;
+
+    >h3{
+        color: var(--primaryH1);
+        font-size: 1.2em;
+    }
+    >h4{
+        color: #6c6c6c;
+        font-size: 1em;
+    }
+    >hr{
+        background-color: #c9d4fc;
+        margin-top: 0.2em;
+    }
+}
+
+#benefitMain{
+    display: flex;
+    flex-direction: column;
+    gap: 2em;
+
+    >span{   
+        >h1{
+            color: var(--primaryBlue);
+            font-size: 2em;
+        }
+        >h2{
+            color: var(--secondaryCrl);
+        }
+    }
+    >button{
+        color: var(--primaryBlue);
+        border: var(--primaryBlue) 2px solid;
+        border-radius: 3em;
+        background-color: white;
+        padding: 0.5em 1.3em;
+        width: fit-content;
+    }
+    >img{
+        border-radius: 1em;
+    }
+}
+
+/* ---BenefitSectionEnd--- */
+
+/* Explore */
+
+#exploreSec{
+    background-color: #f3f7ff;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 4em 10em;
+    gap: 2em;
+    >h1{
+        font-size: 2.5em;
+    }
+}
+
+#exploreCardSec{
+    display: grid;
+    grid-template-rows: repeat(2, 1fr);
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1em;
+    width: 100%;
+}
+
+.exploreCard{
+    display: flex;
+    background-color: white;
+    border: #e7e5e5 2px solid;
+    border-radius: 1em;
+    padding: 1em;
+    justify-content: flex-start;
+    gap: 1em;
+    align-items: center;
+
+    >img{
+        background-color: #e1e9fe;
+        padding: 0.7em;
+        border-radius: 50%;
+        height: 1.7em;
+    }
+    >span{
+        >h2{
+            color: var(--primaryH1);
+        }
+        >h3{
+            color: var(--secondaryCrl);
+            font-size: 0.8em;
+        }
+    }
+}
+
+#exploreBtn{
+    background-color: #e1e9fe;
+    padding: 0.5em 1.4em;
+    border-radius: 1em;
+    border: none;
+    color: var(--primaryBlue);
+}
+
+/* ---ExploreSectionENd--- */
+
+/* WhatSection */
+
+#whatSec{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 4em 0em;
+    gap: 1em;
+    >h1{
+        color: var(--primaryBlue);
+        font-size: 2em;
+    }
+    >h2{
+        color: var(--secondaryCrl);
+        text-align: center;
+    }
+}
+
+.whatCard{
+    border: #e1e9fe 2px solid;
+    width: 20em;
+    padding: 1em;
+}
+
+.whatBanner{
+    display: flex;
+    align-items: center;
+    gap: 1em;
+    >img{
+            width: 2em;
+    }
+    >span{
+        
+        >h2{
+            color: var(--primaryH1);
+        }
+        >h3{
+            color: var(--secondaryCrl);
+        }
+    }
 }
