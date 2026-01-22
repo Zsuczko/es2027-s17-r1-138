@@ -380,7 +380,7 @@ nav{
         color: #4f4f4f;
     }
 }
-
+/* 
 #whatScroll{
     display: flex;
     margin-top: 3em;
@@ -399,6 +399,33 @@ nav{
 }
 #whatScroll::-webkit-scrollbar {
     display: none;
+} */
+
+#whatScroll {
+    width: 100%;
+    overflow: hidden;
+    box-sizing: border-box;
+}
+
+
+#scrollTrack {
+    display: flex;
+    gap: 1em;
+    width: max-content;
+
+    animation: scrollX 20s linear infinite;
+}
+#whatScroll:hover #scrollTrack {
+    animation-play-state: paused;
+}
+
+@keyframes scrollX {
+    from {
+        transform: translateX(0);
+    }
+    to {
+        transform: translateX(-50%);
+    }
 }
 
 .whatBanner{
