@@ -261,7 +261,6 @@ nav{
         >input{
             display: none;
         }
-
     }
 }
 
@@ -271,7 +270,7 @@ nav{
 }
 
 
-input[type=radio]:checked + .radioBtn{
+input[type=radio]:checked ~ .radioBtn{
     color: var(--primaryBlue);
     border-bottom: var(--primaryBlue) 2px solid;
 }
