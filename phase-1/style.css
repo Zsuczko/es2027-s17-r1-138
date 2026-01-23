@@ -268,12 +268,32 @@ nav{
     padding-bottom: 1em;
     font-weight: bold;
 }
+/* input[type=radio]{
+    width: 200px;
+    position: relative;
+    border-bottom: 2px solid black;
+}
+
+input[type=radio]:checked::before{
+    color: red;
+}
+input[type=radio]::before{
+    content: "alma";
+    display: block;
+    position: absolute;
+    top: -90px;
+} */
 
 
-input[type=radio]:checked ~ .radioBtn{
+
+/* #technology:checked ~ #techSpan{
     color: var(--primaryBlue);
     border-bottom: var(--primaryBlue) 2px solid;
 }
+#design:checked ~ #designSpan{
+    color: var(--primaryBlue);
+    border-bottom: var(--primaryBlue) 2px solid;
+} */
 
 #trendingCoursesDesign,
 #trendingCoursesTechnology {
@@ -356,6 +376,49 @@ input[type=radio]:checked ~ .radioBtn{
 
 /* TopDealSection */
 
+#dealSec{
+    display: flex;
+    justify-content: space-between;
+    background-color: #f3f7ff;
+    padding: 3em;
+    gap: 1em;
+    align-items: center;
+}
+
+#dealMain{
+    display: flex;
+    flex-direction: column;
+    gap: 1em;
+    >h1{
+        font-size: 2em;
+        font-weight: bold;
+        color: var(--primaryH1);
+    }
+    >h2{
+        color: var(--secondaryCrl);
+    }
+    >p{
+        font-size: 1.3em;
+        margin-bottom: 1em;
+        color: var(--primaryBlue);
+        >span{
+            color: var(--primaryH1);
+            font-weight: bold;
+            font-size: 1.5em;
+        }
+    }
+}
+
+#bestDeal{
+    display: flex;
+    gap: 1em;
+}
+
+.crossedDeal{
+    text-decoration: line-through;
+    color: #9e9e9e;
+    margin-right: 0.5em;
+}
 
 
 /* ---TopDealSectionEnd--- */
