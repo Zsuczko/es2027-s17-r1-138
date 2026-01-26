@@ -510,6 +510,10 @@ input[type=radio]::before{
     width: 100%;
 }
 
+.exploreCard:hover img{
+    transform: scale(1.4);
+}
+
 .exploreCard{
     display: flex;
     background-color: white;
@@ -525,6 +529,7 @@ input[type=radio]::before{
         padding: 0.7em;
         border-radius: 50%;
         height: 1.7em;
+        transition: 0.5s ease;
     }
     >span{
         >h2{
