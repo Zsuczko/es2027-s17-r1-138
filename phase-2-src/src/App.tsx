@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { GetJsonInfo } from "./services/apiServices";
 import { type Currencies, type Course } from "./data/model";
 
@@ -26,6 +26,18 @@ function App() {
     } else if ((elem as any).msRequestFullscreen) {
       (elem as any).msRequestFullscreen();
     }
+  };
+
+  const scrollRef = useRef<HTMLDivElement>(null);
+
+  const scroll = (direction: "left" | "right") => {
+    if (!scrollRef.current) return;
+
+    const scrollAmount = 200;
+    scrollRef.current.scrollBy({
+      left: direction === "left" ? -scrollAmount : scrollAmount,
+      behavior: "smooth",
+    });
   };
 
   useEffect(() => {
@@ -59,7 +71,7 @@ function App() {
         <img src="/assets/logo.svg" alt="" className="w-[20em] h-[5em]" />
       </header>
       <main>
-        <section className="flex justify-between p-2">
+        <section className="flex justify-between p-2 bg-gray-100">
           <div className="flex gap-3">
             <h1 className="font-bold text-2xl">2026. March</h1>
             <input
@@ -70,13 +82,13 @@ function App() {
               type="text"
               name=""
               id=""
-              className="border-2 border-gray-200 rounded-sm w-sm"
-              placeholder="Search..."
+              className="border-2 border-gray-200 rounded-sm w-sm bg-white"
+              placeholder="🔍Search..."
             />
           </div>
           <div className="flex gap-4">
             <select
-              className="border-2 border-gray-100 p-1"
+              className="border-2 border-gray-200 p-1"
               value={currency}
               onChange={(e) => {
                 setCurrency(e.target.value);
@@ -117,7 +129,19 @@ function App() {
           </div>
         </section>
 
-        <div className="w-full overflow-x-auto chart">
+        <div className="w-full overflow-x-auto chart relative" ref={scrollRef}>
+          <button
+            className="fixed top-[50%] border-2 border-gray-100 p-1 text-2xl left-5 bg-gray-50"
+            onClick={() => scroll("left")}
+          >
+            ⬅️
+          </button>
+          <button
+            className="fixed top-[50%] border-2 border-gray-100 p-1 text-2xl right-5 bg-gray-50"
+            onClick={() => scroll("right")}
+          >
+            ➡️
+          </button>
           <section
             className="grid grid-cols-31 auto-rows-auto text-sm"
             style={{
