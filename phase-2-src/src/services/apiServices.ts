@@ -55,3 +55,29 @@ export async function GetJsonInfo(): Promise<Course[][]> {
   console.log(courses);
   return courses;
 }
+
+export async function downloadCsv() {
+  const res = await fetch("/assets/courses.json");
+  const courses: Course[] = await res.json();
+
+  if (courses.length < 1) return;
+
+  const header = Object.keys(courses[0]).join(",");
+
+  const rows = courses.map((course) =>
+    Object.values(course)
+      .map((value) => `"${String(value).replace(/"/g, '""')}"`)
+      .join(","),
+  );
+
+  const csvText = [header, ...rows].join("\n");
+
+  if (csvText === "") return;
+  const blob = new Blob([csvText], { type: "text/csv;charset=utf-8;" });
+  const link = document.createElement("a");
+
+  link.href = URL.createObjectURL(blob);
+  link.download = "courses.csv";
+  link.click();
+  return;
+}

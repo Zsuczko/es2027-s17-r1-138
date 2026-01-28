@@ -1,5 +1,5 @@
 import { useEffect, useRef, useState } from "react";
-import { GetJsonInfo } from "./services/apiServices";
+import { downloadCsv, GetJsonInfo } from "./services/apiServices";
 import { type Currencies, type Course } from "./data/model";
 import Tooltip from "./components/Tooltip";
 
@@ -108,7 +108,12 @@ function App() {
             >
               🔝Full screen
             </button>
-            <button className="border-2 border-gray-200 p-1 bg-gray-100 rounded-md">
+            <button
+              className="border-2 border-gray-200 p-1 bg-gray-100 rounded-md"
+              onClick={() => {
+                downloadCsv();
+              }}
+            >
               📂Export
             </button>
             <button
