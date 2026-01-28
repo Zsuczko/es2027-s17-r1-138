@@ -116,88 +116,88 @@ function App() {
             </button>
           </div>
         </section>
-        <section
-          className="grid grid-cols-31 auto-rows-auto text-sm overflow-auto"
-          style={{
-            width: `${tableSize}em`,
-          }}
-        >
-          {[...Array(31)].map((_, i) => (
-            <div
-              key={i}
-              className={`row-start-1 text-center border border-gray-300 ${days[i % 7] === "SAT" || days[i % 7] === "SUN" ? "text-red-700" : ""}`}
-            >
-              <p>{i + 1}</p>
-              <p>{days[i % 7]}</p>
-            </div>
-          ))}
 
-          {courses.map((group, groupIndex) =>
-            group.map((course) => {
-              if (
-                searchTerm !== "" &&
-                !course.courseNameEnglish
-                  .toLowerCase()
-                  .includes(searchTerm.toLowerCase())
-              )
-                return <></>;
-
-              const startDate = new Date(course.startDate);
-              const endDate = new Date(course.endDate);
-
-              return (
-                <div
-                  className="p-1"
-                  style={{
-                    gridRowStart: groupIndex + 2,
-                    gridColumnStart: startDate.getDate(),
-                    gridColumnEnd: endDate.getDate() + 1,
-                  }}
-                >
+        <div className="w-full overflow-x-auto chart">
+          <section
+            className="grid grid-cols-31 auto-rows-auto text-sm"
+            style={{
+              width: `${tableSize}em`,
+            }}
+          >
+            {[...Array(31)].map((_, i) => (
+              <div
+                key={i}
+                className={`row-start-1 text-center border border-gray-300 ${days[i % 7] === "SAT" || days[i % 7] === "SUN" ? "text-red-700" : ""}`}
+              >
+                <p>{i + 1}</p>
+                <p>{days[i % 7]}</p>
+              </div>
+            ))}
+            {courses.map((group, groupIndex) =>
+              group.map((course) => {
+                if (
+                  searchTerm !== "" &&
+                  !course.courseNameEnglish
+                    .toLowerCase()
+                    .includes(searchTerm.toLowerCase())
+                )
+                  return <></>;
+                const startDate = new Date(course.startDate);
+                const endDate = new Date(course.endDate);
+                return (
                   <div
-                    className={`h-full border-2 border-gray-200 p-2 truncate w-full border-l-4 rounded-lg ${course.category === "Technology & Software" ? "border-l-green-700" : "border-l-amber-500"}`}
+                    className="p-1"
+                    style={{
+                      gridRowStart: groupIndex + 2,
+                      gridColumnStart: startDate.getDate(),
+                      gridColumnEnd: endDate.getDate() + 1,
+                    }}
                   >
-                    <p className="text-blue-500 p-2 bg-gray-100 w-fit rounded-3xl">
-                      {startDate.getHours()}:
-                      {String(startDate.getMinutes()).padStart(2, "0")}-
-                      {endDate.getHours()}:
-                      {String(endDate.getMinutes()).padStart(2, "0")}
-                    </p>
-                    <p className="turncate w-full">
-                      {/* <span>{course.language === "English" ? "us" : ""}</span> */}
-                      <span>{course.courseName}</span>
-                    </p>
-                    {course.language === "English" ? (
-                      <></>
-                    ) : (
-                      <p className="text-gray-400">
-                        {course.courseNameEnglish}
+                    <div
+                      className={`h-full border-2 border-gray-200 p-2 truncate w-full border-l-4 rounded-lg ${course.category === "Technology & Software" ? "border-l-green-700" : "border-l-amber-500"}`}
+                    >
+                      <p className="text-blue-500 p-2 bg-gray-100 w-fit rounded-3xl">
+                        {startDate.getHours()}:
+                        {String(startDate.getMinutes()).padStart(2, "0")}-
+                        {endDate.getHours()}:
+                        {String(endDate.getMinutes()).padStart(2, "0")}
                       </p>
-                    )}
-                    <p>
-                      <span>
-                        {course.difficulty === "Beginner"
-                          ? "🔴"
-                          : course.difficulty === "Intermediate"
-                            ? "🟡"
-                            : "🟢"}
-                        {course.difficulty}
-                      </span>
-                      -
-                      <span className="font-bold">
-                        {Math.round(
-                          course.price / currncyDivide,
-                        ).toLocaleString()}{" "}
-                        {currency}
-                      </span>
-                    </p>
-                    <p>👤 {course.instructor}</p>
+                      <p className="turncate w-full">
+                        {/* <span>{course.language === "English" ? "us" : ""}</span> */}
+                        <span>{course.courseName}</span>
+                      </p>
+                      {course.language === "English" ? (
+                        <></>
+                      ) : (
+                        <p className="text-gray-400">
+                          {course.courseNameEnglish}
+                        </p>
+                      )}
+                      <p>
+                        <span>
+                          {course.difficulty === "Beginner"
+                            ? "🔴"
+                            : course.difficulty === "Intermediate"
+                              ? "🟡"
+                              : "🟢"}
+                          {course.difficulty}
+                        </span>
+                        -
+                        <span className="font-bold">
+                          {Math.round(
+                            course.price / currncyDivide,
+                          ).toLocaleString()}{" "}
+                          {currency}
+                        </span>
+                      </p>
+                      <p>👤 {course.instructor}</p>
+                    </div>
                   </div>
-                </div>
-              );
-            }),
-          )}
-        </section>
+                );
+              }),
+            )}
+          </section>
+        </div>
       </main>
     </>
   );

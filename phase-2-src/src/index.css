@@ -1,7 +1,14 @@
 @import "tailwindcss";
 
-/* *{
+body{
     overflow-x: hidden;
-} */
+}
 
+.chart{
+    scrollbar-width: none;
+    scroll-behavior: smooth;
 
+}
+.chart::-webkit-scrollbar {
+    display: none;
+} 
