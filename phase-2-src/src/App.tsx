@@ -1,11 +1,18 @@
 import { useEffect, useState } from "react";
 import { GetJsonInfo } from "./services/apiServices";
-import type { Course } from "./data/model";
+import { type Currencies, type Course } from "./data/model";
 
 function App() {
   const [courses, setCourses] = useState<Course[][]>([]);
   const [searchTerm, setSearchTerm] = useState<string>("");
   const [tableSize, setTableSize] = useState<number>(250);
+  const [currency, setCurrency] = useState<string>("EUR");
+  const [currncyDivide, setCurrencyDivide] = useState<number>(1);
+  const [currencyDividers, setCurrencyDividers] = useState<Currencies>({
+    EUR: 1,
+    HUF: 0.00261,
+    CNY: 0.12,
+  });
 
   const days = ["SUN", "MON", "TUE", "WED", "THU", "FRI", "SAT"];
 
@@ -13,10 +20,27 @@ function App() {
     const fetchData = async () => {
       const vami = await GetJsonInfo();
       setCourses(vami);
+
+      await fetch("/assets/currencies.json")
+        .then((res) => res.json())
+        .then((data) => {
+          setCurrencyDividers(data);
+        });
     };
 
     fetchData();
   }, []);
+
+  useEffect(() => {
+    if (currency === "EUR") {
+      setCurrencyDivide(currencyDividers.EUR);
+    } else if (currency === "HUF") {
+      setCurrencyDivide(currencyDividers.HUF);
+    } else if (currency === "CNY") {
+      setCurrencyDivide(currencyDividers.CNY);
+    }
+  }, [currencyDividers, currency]);
+
   return (
     <>
       <header className="flex justify-center">
@@ -39,6 +63,18 @@ function App() {
             />
           </div>
           <div className="flex gap-4">
+            <select
+              className="border-2 border-gray-100 p-1"
+              value={currency}
+              onChange={(e) => {
+                setCurrency(e.target.value);
+              }}
+            >
+              <option value="EUR">💰EUR</option>
+              <option value="HUF">💰HUF</option>
+              <option value="CNY">💰CNY</option>
+            </select>
+
             <button className="border-2 border-gray-200 p-1 bg-gray-100 rounded-md">
               🔝Full screen
             </button>
@@ -126,7 +162,13 @@ function App() {
                           : "🟢"}
                       {course.difficulty}
                     </span>
-                    -<span className="font-bold">{course.price} EUR</span>
+                    -
+                    <span className="font-bold">
+                      {Math.round(
+                        course.price / currncyDivide,
+                      ).toLocaleString()}{" "}
+                      {currency}
+                    </span>
                   </p>
                   <p>👤 {course.instructor}</p>
                 </div>

@@ -9,3 +9,9 @@ export type Course = {
   instructor: string;
   price: number;
 };
+
+export type Currencies = {
+  EUR: number;
+  HUF: number;
+  CNY: number;
+};
