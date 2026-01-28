@@ -5,7 +5,7 @@ import { type Currencies, type Course } from "./data/model";
 function App() {
   const [courses, setCourses] = useState<Course[][]>([]);
   const [searchTerm, setSearchTerm] = useState<string>("");
-  const [tableSize, setTableSize] = useState<number>(250);
+  const [tableSize, setTableSize] = useState<number>(300);
   const [currency, setCurrency] = useState<string>("EUR");
   const [currncyDivide, setCurrencyDivide] = useState<number>(1);
   const [currencyDividers, setCurrencyDividers] = useState<Currencies>({
@@ -15,6 +15,18 @@ function App() {
   });
 
   const days = ["SUN", "MON", "TUE", "WED", "THU", "FRI", "SAT"];
+
+  const goFullScreen = () => {
+    const elem = document.documentElement;
+
+    if (elem.requestFullscreen) {
+      elem.requestFullscreen();
+    } else if ((elem as any).webkitRequestFullscreen) {
+      (elem as any).webkitRequestFullscreen();
+    } else if ((elem as any).msRequestFullscreen) {
+      (elem as any).msRequestFullscreen();
+    }
+  };
 
   useEffect(() => {
     const fetchData = async () => {
@@ -75,7 +87,12 @@ function App() {
               <option value="CNY">💰CNY</option>
             </select>
 
-            <button className="border-2 border-gray-200 p-1 bg-gray-100 rounded-md">
+            <button
+              className="border-2 border-gray-200 p-1 bg-gray-100 rounded-md"
+              onClick={() => {
+                goFullScreen();
+              }}
+            >
               🔝Full screen
             </button>
             <button className="border-2 border-gray-200 p-1 bg-gray-100 rounded-md">
@@ -84,7 +101,7 @@ function App() {
             <button
               className="border-2 border-gray-200 p-1 bg-gray-100 rounded-md"
               onClick={() => {
-                if (tableSize > 180) setTableSize((prev) => prev - 10);
+                if (tableSize > 200) setTableSize((prev) => prev - 10);
               }}
             >
               ➖
@@ -92,7 +109,7 @@ function App() {
             <button
               className="border-2 border-gray-200 p-1 bg-gray-100 rounded-md"
               onClick={() => {
-                if (tableSize < 300) setTableSize((prev) => prev + 10);
+                if (tableSize < 350) setTableSize((prev) => prev + 10);
               }}
             >
               ➕
@@ -100,7 +117,7 @@ function App() {
           </div>
         </section>
         <section
-          className="grid grid-cols-31 auto-rows-auto gap-2 text-sm overflow-auto"
+          className="grid grid-cols-31 auto-rows-auto text-sm overflow-auto"
           style={{
             width: `${tableSize}em`,
           }}
@@ -108,7 +125,7 @@ function App() {
           {[...Array(31)].map((_, i) => (
             <div
               key={i}
-              className="row-start-1 text-center border border-gray-300"
+              className={`row-start-1 text-center border border-gray-300 ${days[i % 7] === "SAT" || days[i % 7] === "SUN" ? "text-red-700" : ""}`}
             >
               <p>{i + 1}</p>
               <p>{days[i % 7]}</p>
@@ -130,47 +147,52 @@ function App() {
 
               return (
                 <div
+                  className="p-1"
                   style={{
                     gridRowStart: groupIndex + 2,
                     gridColumnStart: startDate.getDate(),
                     gridColumnEnd: endDate.getDate() + 1,
                   }}
-                  className="border-2 border-amber-500 p-2 truncate w-full"
                 >
-                  <p className="text-blue-500 p-2 bg-gray-100 w-fit rounded-3xl">
-                    {startDate.getHours()}:
-                    {String(startDate.getMinutes()).padStart(2, "0")}-
-                    {endDate.getHours()}:
-                    {String(endDate.getMinutes()).padStart(2, "0")}
-                  </p>
-                  <p className="turncate w-full">
-                    {/* <span>{course.language === "English" ? "us" : ""}</span> */}
-                    <span>{course.courseName}</span>
-                  </p>
-                  {course.language === "English" ? (
-                    <></>
-                  ) : (
-                    <p className="text-gray-400">{course.courseNameEnglish}</p>
-                  )}
-
-                  <p>
-                    <span>
-                      {course.difficulty === "Beginner"
-                        ? "🔴"
-                        : course.difficulty === "Intermediate"
-                          ? "🟡"
-                          : "🟢"}
-                      {course.difficulty}
-                    </span>
-                    -
-                    <span className="font-bold">
-                      {Math.round(
-                        course.price / currncyDivide,
-                      ).toLocaleString()}{" "}
-                      {currency}
-                    </span>
-                  </p>
-                  <p>👤 {course.instructor}</p>
+                  <div
+                    className={`h-full border-2 border-gray-200 p-2 truncate w-full border-l-4 rounded-lg ${course.category === "Technology & Software" ? "border-l-green-700" : "border-l-amber-500"}`}
+                  >
+                    <p className="text-blue-500 p-2 bg-gray-100 w-fit rounded-3xl">
+                      {startDate.getHours()}:
+                      {String(startDate.getMinutes()).padStart(2, "0")}-
+                      {endDate.getHours()}:
+                      {String(endDate.getMinutes()).padStart(2, "0")}
+                    </p>
+                    <p className="turncate w-full">
+                      {/* <span>{course.language === "English" ? "us" : ""}</span> */}
+                      <span>{course.courseName}</span>
+                    </p>
+                    {course.language === "English" ? (
+                      <></>
+                    ) : (
+                      <p className="text-gray-400">
+                        {course.courseNameEnglish}
+                      </p>
+                    )}
+                    <p>
+                      <span>
+                        {course.difficulty === "Beginner"
+                          ? "🔴"
+                          : course.difficulty === "Intermediate"
+                            ? "🟡"
+                            : "🟢"}
+                        {course.difficulty}
+                      </span>
+                      -
+                      <span className="font-bold">
+                        {Math.round(
+                          course.price / currncyDivide,
+                        ).toLocaleString()}{" "}
+                        {currency}
+                      </span>
+                    </p>
+                    <p>👤 {course.instructor}</p>
+                  </div>
                 </div>
               );
             }),
