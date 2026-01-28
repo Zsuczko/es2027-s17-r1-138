@@ -1,6 +1,7 @@
 import { useEffect, useRef, useState } from "react";
 import { GetJsonInfo } from "./services/apiServices";
 import { type Currencies, type Course } from "./data/model";
+import Tooltip from "./components/Tooltip";
 
 function App() {
   const [courses, setCourses] = useState<Course[][]>([]);
@@ -131,13 +132,13 @@ function App() {
 
         <div className="w-full overflow-x-auto chart relative" ref={scrollRef}>
           <button
-            className="fixed top-[50%] border-2 border-gray-100 p-1 text-2xl left-5 bg-gray-50"
+            className="fixed top-[50%] border-2 border-gray-100 p-1 text-2xl left-5 bg-gray-50 z-50"
             onClick={() => scroll("left")}
           >
             ⬅️
           </button>
           <button
-            className="fixed top-[50%] border-2 border-gray-100 p-1 text-2xl right-5 bg-gray-50"
+            className="fixed top-[50%] border-2 border-gray-100 p-1 text-2xl right-5 bg-gray-50 z-50"
             onClick={() => scroll("right")}
           >
             ➡️
@@ -188,7 +189,9 @@ function App() {
                       </p>
                       <p className="turncate w-full">
                         {/* <span>{course.language === "English" ? "us" : ""}</span> */}
-                        <span>{course.courseName}</span>
+                        <Tooltip text={course.courseName}>
+                          <span className="z-0">{course.courseName}</span>
+                        </Tooltip>
                       </p>
                       {course.language === "English" ? (
                         <></>
@@ -197,7 +200,7 @@ function App() {
                           {course.courseNameEnglish}
                         </p>
                       )}
-                      <p>
+                      <p className="flex items-center gap-1">
                         <span>
                           {course.difficulty === "Beginner"
                             ? "🔴"
@@ -206,7 +209,7 @@ function App() {
                               : "🟢"}
                           {course.difficulty}
                         </span>
-                        -
+                        <span className="inline-block w-1 h-1 bg-black rounded-full"></span>
                         <span className="font-bold">
                           {Math.round(
                             course.price / currncyDivide,
