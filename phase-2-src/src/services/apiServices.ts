@@ -14,6 +14,16 @@ const hasDateOverlap = (a: Course, b: Course) => {
   return startA <= endB && endA >= startB;
 };
 
+const isInMarch = (course: Course): boolean => {
+  const start = new Date(course.startDate);
+  const end = new Date(course.endDate);
+
+  const isStartInMarch = start.getMonth() === 2;
+  const isEndInMarch = end.getMonth() === 2;
+
+  return isStartInMarch && isEndInMarch;
+};
+
 export async function GetJsonInfo(): Promise<Course[][]> {
   const res = await fetch("/assets/courses.json");
   const items: Course[] = await res.json();
@@ -21,22 +31,24 @@ export async function GetJsonInfo(): Promise<Course[][]> {
   const courses: Course[][] = [];
 
   items.forEach((course) => {
-    let placed = false;
+    if (isInMarch(course)) {
+      let placed = false;
 
-    for (const group of courses) {
-      const overlaps = group.some((existing) =>
-        hasDateOverlap(existing, course),
-      );
+      for (const group of courses) {
+        const overlaps = group.some((existing) =>
+          hasDateOverlap(existing, course),
+        );
 
-      if (!overlaps) {
-        group.push(course);
-        placed = true;
-        break;
+        if (!overlaps) {
+          group.push(course);
+          placed = true;
+          break;
+        }
       }
-    }
 
-    if (!placed) {
-      courses.push([course]);
+      if (!placed) {
+        courses.push([course]);
+      }
     }
   });
 

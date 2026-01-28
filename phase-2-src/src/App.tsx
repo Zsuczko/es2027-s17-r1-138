@@ -19,7 +19,7 @@ function App() {
         <img src="/assets/logo.svg" alt="" className="w-[20em] h-[5em]" />
       </header>
       <main>
-        <section className="grid grid-cols-31 auto-rows-auto w-[200em]">
+        <section className="grid grid-cols-31 auto-rows-auto w-[250em] gap-2">
           {[...Array(31)].map((_, i) => (
             <p
               key={i}
@@ -31,19 +31,39 @@ function App() {
 
           {courses.map((group, groupIndex) =>
             group.map((course) => {
-              const startDate = new Date(course.startDate).getDate();
-              const endDate = new Date(course.endDate).getDate();
+              const startDate = new Date(course.startDate);
+              const endDate = new Date(course.endDate);
 
               return (
                 <div
                   style={{
                     gridRowStart: groupIndex + 2,
-                    gridColumnStart: startDate,
-                    gridColumnEnd: endDate + 1,
+                    gridColumnStart: startDate.getDate(),
+                    gridColumnEnd: endDate.getDate() + 1,
                   }}
-                  className="border-2 border-amber-500 p-2"
+                  className="border-2 border-amber-500 p-2 truncate w-full"
                 >
-                  {course.courseName}
+                  <p className="text-blue-500 p-2 bg-gray-100 w-fit rounded-3xl">
+                    {startDate.getHours()}:
+                    {String(startDate.getMinutes()).padStart(2, "0")}-
+                    {endDate.getHours()}:
+                    {String(endDate.getMinutes()).padStart(2, "0")}
+                  </p>
+                  <p className="turncate w-full">
+                    {/* <span>{course.language === "English" ? "us" : ""}</span> */}
+                    <span>{course.courseName}</span>
+                  </p>
+                  <p>
+                    <span>
+                      {course.difficulty === "Beginner"
+                        ? "🔴"
+                        : course.difficulty === "Intermediate"
+                          ? "🟡"
+                          : "🟢"}
+                      {course.difficulty}
+                    </span>
+                    -<span className="font-bold">{course.price} EUR</span>
+                  </p>
                 </div>
               );
             }),
