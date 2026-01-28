@@ -4,6 +4,10 @@ import type { Course } from "./data/model";
 
 function App() {
   const [courses, setCourses] = useState<Course[][]>([]);
+  const [searchTerm, setSearchTerm] = useState<string>("");
+  const [tableSize, setTableSize] = useState<number>(250);
+
+  const days = ["SUN", "MON", "TUE", "WED", "THU", "FRI", "SAT"];
 
   useEffect(() => {
     const fetchData = async () => {
@@ -19,18 +23,72 @@ function App() {
         <img src="/assets/logo.svg" alt="" className="w-[20em] h-[5em]" />
       </header>
       <main>
-        <section className="grid grid-cols-31 auto-rows-auto w-[250em] gap-2">
-          {[...Array(31)].map((_, i) => (
-            <p
-              key={i}
-              className="row-start-1 text-center py-3 border border-gray-300"
+        <section className="flex justify-between p-2">
+          <div className="flex gap-3">
+            <h1 className="font-bold text-2xl">2026. March</h1>
+            <input
+              value={searchTerm}
+              onChange={(e) => {
+                setSearchTerm(e.target.value);
+              }}
+              type="text"
+              name=""
+              id=""
+              className="border-2 border-gray-200 rounded-sm w-sm"
+              placeholder="Search..."
+            />
+          </div>
+          <div className="flex gap-4">
+            <button className="border-2 border-gray-200 p-1 bg-gray-100 rounded-md">
+              🔝Full screen
+            </button>
+            <button className="border-2 border-gray-200 p-1 bg-gray-100 rounded-md">
+              📂Export
+            </button>
+            <button
+              className="border-2 border-gray-200 p-1 bg-gray-100 rounded-md"
+              onClick={() => {
+                if (tableSize > 180) setTableSize((prev) => prev - 10);
+              }}
             >
-              {i + 1}
-            </p>
+              ➖
+            </button>
+            <button
+              className="border-2 border-gray-200 p-1 bg-gray-100 rounded-md"
+              onClick={() => {
+                if (tableSize < 300) setTableSize((prev) => prev + 10);
+              }}
+            >
+              ➕
+            </button>
+          </div>
+        </section>
+        <section
+          className="grid grid-cols-31 auto-rows-auto gap-2 text-sm overflow-auto"
+          style={{
+            width: `${tableSize}em`,
+          }}
+        >
+          {[...Array(31)].map((_, i) => (
+            <div
+              key={i}
+              className="row-start-1 text-center border border-gray-300"
+            >
+              <p>{i + 1}</p>
+              <p>{days[i % 7]}</p>
+            </div>
           ))}
 
           {courses.map((group, groupIndex) =>
             group.map((course) => {
+              if (
+                searchTerm !== "" &&
+                !course.courseNameEnglish
+                  .toLowerCase()
+                  .includes(searchTerm.toLowerCase())
+              )
+                return <></>;
+
               const startDate = new Date(course.startDate);
               const endDate = new Date(course.endDate);
 
@@ -53,6 +111,12 @@ function App() {
                     {/* <span>{course.language === "English" ? "us" : ""}</span> */}
                     <span>{course.courseName}</span>
                   </p>
+                  {course.language === "English" ? (
+                    <></>
+                  ) : (
+                    <p className="text-gray-400">{course.courseNameEnglish}</p>
+                  )}
+
                   <p>
                     <span>
                       {course.difficulty === "Beginner"
@@ -64,6 +128,7 @@ function App() {
                     </span>
                     -<span className="font-bold">{course.price} EUR</span>
                   </p>
+                  <p>👤 {course.instructor}</p>
                 </div>
               );
             }),
@@ -73,5 +138,4 @@ function App() {
     </>
   );
 }
-
 export default App;
