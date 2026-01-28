@@ -12,12 +12,18 @@
     /* overflow-x: hidden; */
 }
 
+@media (max-width: 480px) {
+    body{
+        overflow: hidden;
+    }
+}
+
 .avgBtn{
     background-color: var(--primaryBlue);
     border: none;
     border-radius: 2em;
     color: white;
-    padding: 0.7em 1.5em 0.7em 1.5em;
+    padding: 0.7em 1.5em;
     width: fit-content;
 }
 
@@ -38,6 +44,7 @@ header{
     padding: 0.6em;
     font-size: 1em;
     color: white;
+    width: auto;
 }
 
 /* ---DiscountEnd--- */
@@ -47,13 +54,15 @@ header{
 #searchSection{
     display: flex;
     flex-direction: row;
-    justify-content: space-around;
-    padding: 1em 0em;
+    justify-content: space-between;
+    padding: 1em 2em;
 }
 
 #searchLogo{
     width: 11em;
 }
+
+
 
 #searchLabel{
     border: 2px solid #c9d4fc;
@@ -85,6 +94,25 @@ header{
     outline: none;
 }
 
+.headerSearch{
+    display: flex;
+    gap: 2em;
+}
+@media (max-width: 480px) {
+    #searchLogo{
+        width: 9em;
+    }
+    #searchLabel{
+        display: none;
+    }
+    #searchSection{
+        padding: 0.7em 0.5em;
+    }
+    .avgBtn{
+    padding: 0.4em 0.7em;
+    }
+}
+
 /* ---SearchEnd--- */
 
 /* Navigation */
@@ -106,6 +134,14 @@ nav{
     align-items: center;
     >img{
         width: 1em;
+    }
+}
+
+@media (max-width: 480px) {
+    nav{
+        overflow-x: auto;
+        font-size: medium;
+        white-space: nowrap;
     }
 }
 
@@ -155,6 +191,23 @@ nav{
     >p{
         color: var(--secondaryCrl);
         font-size: 1.2em;
+    }
+}
+
+@media (max-width: 480px) {
+    #heroImg{
+        display: none;
+    }
+    #heroMain{
+        margin-top: 1em;
+        text-align: center;
+        >h1{
+            font-size: 1.8em;
+            line-height: 1em;
+        }
+        >h2{
+            font-size: 1.1em;
+        }
     }
 }
 
