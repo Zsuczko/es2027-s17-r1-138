@@ -179,14 +179,19 @@ function App() {
                     }}
                   >
                     <div
-                      className={`h-full border-2 border-gray-200 p-2 truncate w-full border-l-4 rounded-lg ${course.category === "Technology & Software" ? "border-l-green-700" : "border-l-amber-500"}`}
+                      className={`h-full border-2 hover:scale-[101%] border-gray-200 p-2 truncate w-full border-l-4 rounded-lg ${course.category === "Technology & Software" ? "border-l-green-700" : "border-l-amber-500"}`}
                     >
-                      <p className="text-blue-500 p-2 bg-gray-100 w-fit rounded-3xl">
-                        {startDate.getHours()}:
-                        {String(startDate.getMinutes()).padStart(2, "0")}-
-                        {endDate.getHours()}:
-                        {String(endDate.getMinutes()).padStart(2, "0")}
-                      </p>
+                      <Tooltip
+                        text="Vami"
+                        // label={<button>Add to Calendar</button>}
+                      >
+                        <p className="text-blue-500 p-2 bg-gray-100 w-fit rounded-3xl">
+                          {startDate.getHours()}:
+                          {String(startDate.getMinutes()).padStart(2, "0")}-
+                          {endDate.getHours()}:
+                          {String(endDate.getMinutes()).padStart(2, "0")}
+                        </p>
+                      </Tooltip>
                       <p className="turncate w-full">
                         {/* <span>{course.language === "English" ? "us" : ""}</span> */}
                         <Tooltip text={course.courseName}>
@@ -210,12 +215,14 @@ function App() {
                           {course.difficulty}
                         </span>
                         <span className="inline-block w-1 h-1 bg-black rounded-full"></span>
-                        <span className="font-bold">
-                          {Math.round(
-                            course.price / currncyDivide,
-                          ).toLocaleString()}{" "}
-                          {currency}
-                        </span>
+                        <Tooltip text={course.price.toString() + " EUR"}>
+                          <span className="font-bold">
+                            {Math.round(
+                              course.price / currncyDivide,
+                            ).toLocaleString()}{" "}
+                            {currency}
+                          </span>
+                        </Tooltip>
                       </p>
                       <p>👤 {course.instructor}</p>
                     </div>
