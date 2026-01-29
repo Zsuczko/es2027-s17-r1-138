@@ -1,0 +1,985 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+
+    <link rel="stylesheet" href="style.css" />
+    <title>Document</title>
+  </head>
+  <body>
+    <header>
+      <section id="discountSec">
+        🔥Limited Time Offer: Get 50% Off on All Courses!
+      </section>
+      <section id="searchSection">
+        <span class="headerSearch">
+          <img src="assets/logo.svg" alt="logo" title="logo" id="searchLogo" />
+          <label for="searchInput" id="searchLabel">
+            <input
+              type="text"
+              name=""
+              id="searchInput"
+              placeholder="What would you like to learn?"
+            />
+            <button id="searchBtn">
+              <img src="assets/search-icon.svg" alt="search icon" />
+            </button>
+          </label>
+        </span>
+        <button class="avgBtn">Join for Free</button>
+      </section>
+      <nav>
+        <span class="navSpan">
+          <p>Technology & Software</p>
+          <img src="assets/chevron-down.svg" alt="down logo" />
+        </span>
+        <span class="navSpan">
+          <p>Business & Management</p>
+          <img src="assets/chevron-down.svg" alt="down logo" />
+        </span>
+        <span class="navSpan">
+          <p>IT & Software</p>
+          <img src="assets/chevron-down.svg" alt="down logo" />
+        </span>
+        <span class="navSpan">
+          <p>Health & Wellness</p>
+          <img src="assets/chevron-down.svg" alt="down logo" />
+        </span>
+        <span class="navSpan">
+          <p>Language Learning</p>
+          <img src="assets/chevron-down.svg" alt="down logo" />
+        </span>
+        <span class="navSpan">
+          <p>See All Categories</p>
+          <img src="assets/chevron-down.svg" alt="down logo" />
+        </span>
+      </nav>
+    </header>
+    <main>
+      <!-- Hero -->
+      <section id="heroSec">
+        <section id="heroMain">
+          <h1>
+            <span>Boost Your Career</span> with Industry-Recognized Skills
+          </h1>
+          <h2>
+            Flexible, affordable courses designed to help you achieve your
+            goals, whether you're at home, on the go, or anywhere in between.
+          </h2>
+          <section id="avatarSec">
+            <div class="avatarGroup">
+              <span class="avatar">
+                <img src="assets/round-avatar-1.png" alt="avatar" />
+              </span>
+              <span class="avatar">
+                <img src="assets/round-avatar-2.png" alt="avatar" />
+              </span>
+              <span class="avatar">
+                <img src="assets/round-avatar-3.png" alt="avatar" />
+              </span>
+              <span class="avatar">
+                <img src="assets/round-avatar-4.png" alt="avatar" />
+              </span>
+              <span class="avatar">
+                <img src="assets/round-avatar-5.png" alt="avatar" />
+              </span>
+              <span class="avatar">
+                <div id="avatarDummy">+25K</div>
+              </span>
+            </div>
+            <p>Join with us</p>
+          </section>
+          <button class="avgBtn">Browse All Courses</button>
+        </section>
+        <section>
+          <img
+            src="assets/hero-image.png"
+            alt="hero image"
+            title="hero title"
+            id="heroImg"
+          />
+        </section>
+      </section>
+
+      <section id="trustSec">
+        <h2>Trusted by <span>200+ Leading Companies and Universities</span></h2>
+        <div id="trustLogo">
+          <img src="assets/ibm-logo.png" alt="ibm logo" title="ibm" />
+          <img src="assets/google-logo.png" alt="google logo" title="google" />
+          <img src="assets/adobe-logo.png" alt="adobe logo" title="adobe" />
+          <img
+            src="assets/ms-logo.png"
+            alt="microsoft logo"
+            title="microsoft"
+          />
+          <img
+            src="assets/coursera-logo.png"
+            alt="coursera logo"
+            title="coursera"
+          />
+          <img src="assets/cisco-logo.png" alt="cisco logo" title="cisco" />
+          <img src="assets/aws-logo.png" alt="aws logo" title="aws" />
+        </div>
+      </section>
+
+      <section id="trendingSec">
+        <span>
+          <h1>Trending Courses Across Diverse Fields</h1>
+          <h2>
+            Handpicked courses across various categories to help you achieve
+            your learning goals
+          </h2>
+        </span>
+        <div>
+          <span id="selectCtg">
+            <label for="technology">
+              <!-- <input
+                type="radio"
+                name="category"
+                class="technology"
+                checked
+                value="1"
+              /> -->
+              <span id="techSpan">Technology & Software</span>
+            </label>
+            <label for="design">
+              <!-- <input type="radio" name="category" class="design" value="2" /> -->
+              <span id="designSpan">Design & UX/UI</span>
+            </label>
+          </span>
+          <hr />
+        </div>
+
+        <section id="trendingCourses">
+          <input
+            type="radio"
+            name="category"
+            id="technology"
+            checked
+            value="1"
+            style="display: none"
+          />
+          <input
+            type="radio"
+            name="category"
+            id="design"
+            value="2"
+            style="display: none"
+          />
+
+          <div id="trendingCoursesTechnology">
+            <div class="trendingCard">
+              <img src="assets/course-1.png" alt="course 1 logo" />
+              <h2>The Advanced Web Developer Bootcamp</h2>
+              <h3>Sarah Lee</h3>
+              <p>$19.99</p>
+              <div class="trendingRating">
+                <span>⭐4.9</span>
+                <span id="trendUSer">
+                  <p>2,500+</p>
+                  <div class="trendAvatarGroup">
+                    <img
+                      src="assets/round-avatar-1.png"
+                      alt="avatar"
+                      class="trendAvatar"
+                    />
+                    <img
+                      src="assets/round-avatar-2.png"
+                      alt="avatar"
+                      class="trendAvatar"
+                    />
+                    <img
+                      src="assets/round-avatar-3.png"
+                      alt="avatar"
+                      class="trendAvatar"
+                    />
+                  </div>
+                </span>
+              </div>
+            </div>
+            <div class="trendingCard">
+              <img src="assets/course-2.png" alt="course 1 logo" />
+              <h2>The Complete 2026 PHP Full Stack Web Developer Bootcamp</h2>
+              <h3>Sarah Lee</h3>
+              <p>$109.99</p>
+              <div class="trendingRating">
+                <span>⭐4.9</span>
+                <span id="trendUSer">
+                  <p>4,235+</p>
+                  <div class="trendAvatarGroup">
+                    <img
+                      src="assets/round-avatar-1.png"
+                      alt="avatar"
+                      class="trendAvatar"
+                    />
+                    <img
+                      src="assets/round-avatar-4.png"
+                      alt="avatar"
+                      class="trendAvatar"
+                    />
+                    <img
+                      src="assets/round-avatar-5.png"
+                      alt="avatar"
+                      class="trendAvatar"
+                    />
+                  </div>
+                </span>
+              </div>
+            </div>
+            <div class="trendingCard">
+              <img src="assets/course-3.png" alt="course 1 logo" />
+              <h2>Internet and Web Development Fundamentals</h2>
+              <h3>Sarah Lee</h3>
+              <p>$79.99</p>
+              <div class="trendingRating">
+                <span>⭐4.9</span>
+                <span id="trendUSer">
+                  <p>20,459+</p>
+                  <div class="trendAvatarGroup">
+                    <img
+                      src="assets/round-avatar-3.png"
+                      alt="avatar"
+                      class="trendAvatar"
+                    />
+                    <img
+                      src="assets/round-avatar-2.png"
+                      alt="avatar"
+                      class="trendAvatar"
+                    />
+                    <img
+                      src="assets/round-avatar-5.png"
+                      alt="avatar"
+                      class="trendAvatar"
+                    />
+                  </div>
+                </span>
+              </div>
+            </div>
+            <div class="trendingCard">
+              <img src="assets/course-4.png" alt="course 1 logo" />
+              <h2>CSS, Bootstrap ,JavaScript, Web Development Course</h2>
+              <h3>Sarah Lee</h3>
+              <p>$49.99</p>
+              <div class="trendingRating">
+                <span>⭐4.9</span>
+                <span id="trendUSer">
+                  <p>2,500+</p>
+                  <div class="trendAvatarGroup">
+                    <img
+                      src="assets/round-avatar-4.png"
+                      alt="avatar"
+                      class="trendAvatar"
+                    />
+                    <img
+                      src="assets/round-avatar-5.png"
+                      alt="avatar"
+                      class="trendAvatar"
+                    />
+                    <img
+                      src="assets/round-avatar-2.png"
+                      alt="avatar"
+                      class="trendAvatar"
+                    />
+                  </div>
+                </span>
+              </div>
+            </div>
+          </div>
+
+          <div id="trendingCoursesDesign">
+            <div class="trendingCard">
+              <img src="assets/course-4.png" alt="course 1 logo" />
+              <h2>
+                Complete Web & Mobile Designer in 2026: UI/UX, Figma, +more
+              </h2>
+              <h3>Alex Chen</h3>
+              <p>$89.99</p>
+              <div class="trendingRating">
+                <span>⭐4.8</span>
+                <span id="trendUSer">
+                  <p>3,200+</p>
+                  <div class="trendAvatarGroup">
+                    <img
+                      src="assets/round-avatar-3.png"
+                      alt="avatar"
+                      class="trendAvatar"
+                    />
+                    <img
+                      src="assets/round-avatar-4.png"
+                      alt="avatar"
+                      class="trendAvatar"
+                    />
+                    <img
+                      src="assets/round-avatar-1.png"
+                      alt="avatar"
+                      class="trendAvatar"
+                    />
+                  </div>
+                </span>
+              </div>
+            </div>
+            <div class="trendingCard">
+              <img src="assets/course-3.png" alt="course 1 logo" />
+              <h2>UX Design Masterclass: User Experience Design Course</h2>
+              <h3>Maria Rodriguez</h3>
+              <p>$74.99</p>
+              <div class="trendingRating">
+                <span>⭐4.9</span>
+                <span id="trendUSer">
+                  <p>5,100+</p>
+                  <div class="trendAvatarGroup">
+                    <img
+                      src="assets/round-avatar-5.png"
+                      alt="avatar"
+                      class="trendAvatar"
+                    />
+                    <img
+                      src="assets/round-avatar-2.png"
+                      alt="avatar"
+                      class="trendAvatar"
+                    />
+                    <img
+                      src="assets/round-avatar-3.png"
+                      alt="avatar"
+                      class="trendAvatar"
+                    />
+                  </div>
+                </span>
+              </div>
+            </div>
+            <div class="trendingCard">
+              <img src="assets/course-1.png" alt="course 1 logo" />
+              <h2>Adobe XD UI/UX Design: From Zero to Advanced</h2>
+              <h3>James Wilson</h3>
+              <p>$59.99</p>
+              <div class="trendingRating">
+                <span>⭐4.7</span>
+                <span id="trendUSer">
+                  <p>2,800+</p>
+                  <div class="trendAvatarGroup">
+                    <img
+                      src="assets/round-avatar-3.png"
+                      alt="avatar"
+                      class="trendAvatar"
+                    />
+                    <img
+                      src="assets/round-avatar-2.png"
+                      alt="avatar"
+                      class="trendAvatar"
+                    />
+                    <img
+                      src="assets/round-avatar-5.png"
+                      alt="avatar"
+                      class="trendAvatar"
+                    />
+                  </div>
+                </span>
+              </div>
+            </div>
+            <div class="trendingCard">
+              <img src="assets/course-2.png" alt="course 1 logo" />
+              <h2>Figma UI/UX Design Essentials: Complete Design System</h2>
+              <h3>Emma Thompson</h3>
+              <p>$64.99</p>
+              <div class="trendingRating">
+                <span>⭐4.8</span>
+                <span id="trendUSer">
+                  <p>4,500+</p>
+                  <div class="trendAvatarGroup">
+                    <img
+                      src="assets/round-avatar-3.png"
+                      alt="avatar"
+                      class="trendAvatar"
+                    />
+                    <img
+                      src="assets/round-avatar-1.png"
+                      alt="avatar"
+                      class="trendAvatar"
+                    />
+                    <img
+                      src="assets/round-avatar-2.png"
+                      alt="avatar"
+                      class="trendAvatar"
+                    />
+                  </div>
+                </span>
+              </div>
+            </div>
+          </div>
+        </section>
+      </section>
+
+      <section id="dealSec">
+        <section id="dealMain">
+          <h1>Limited Time Deals on Top Courses!</h1>
+          <h2>
+            Special prices on selected courses for a limited period. Countdown
+            to savings starts now!
+          </h2>
+          <p>Ends in: <span>02h 15m 30s</span></p>
+          <button class="avgBtn">Explore All Deals</button>
+        </section>
+        <div class="bestDealWrapper">
+          <section id="bestDeal">
+            <div class="trendingCard">
+              <img src="assets/top-course-1.png" alt="top course" />
+              <h2>The Complete 2024 Web Development Bootcamp</h2>
+              <h3>Sarah Lee</h3>
+              <p><span class="crossedDeal">$49.99</span>$9.99</p>
+              <div class="trendingRating">
+                <span>⭐4.9</span>
+                <span id="trendUSer">
+                  <p>20,459+</p>
+                  <div class="trendAvatarGroup">
+                    <img
+                      src="assets/round-avatar-3.png"
+                      alt="avatar"
+                      class="trendAvatar"
+                    />
+                    <img
+                      src="assets/round-avatar-1.png"
+                      alt="avatar"
+                      class="trendAvatar"
+                    />
+                    <img
+                      src="assets/round-avatar-2.png"
+                      alt="avatar"
+                      class="trendAvatar"
+                    />
+                  </div>
+                </span>
+              </div>
+            </div>
+            <div class="trendingCard">
+              <img
+                src="assets/top-course-2.png"
+                alt="course 1 logo"
+                class="dealCardImg"
+              />
+              <h2>
+                Ultimate AWS Certified Solutions Architect Associate SAA-C03
+              </h2>
+              <h3>Sarah Lee</h3>
+              <p><span class="crossedDeal">$49.99</span>$9.99</p>
+              <div class="trendingRating">
+                <span>⭐4.8</span>
+                <span id="trendUSer">
+                  <p>2,500+</p>
+                  <div class="trendAvatarGroup">
+                    <img
+                      src="assets/round-avatar-5.png"
+                      alt="avatar"
+                      class="trendAvatar"
+                    />
+                    <img
+                      src="assets/round-avatar-2.png"
+                      alt="avatar"
+                      class="trendAvatar"
+                    />
+                    <img
+                      src="assets/round-avatar-4.png"
+                      alt="avatar"
+                      class="trendAvatar"
+                    />
+                  </div>
+                </span>
+              </div>
+            </div>
+          </section>
+        </div>
+      </section>
+
+      <section id="benefitSec">
+        <section id="benefitSecond">
+          <div class="benefitDiv">
+            <h3>Learn from Industry Experts</h3>
+            <h4>
+              Gain knowledge from professionals with real-world experience.
+              Learn insights, tips, and strategies used by industry leaders
+            </h4>
+            <hr />
+          </div>
+          <div class="benefitDiv">
+            <h3>Flexible Learning Options</h3>
+            <h4>
+              Study at your own pace, anytime and anywhere. Choose from
+              self-paced courses or live sessions that suit your schedule.
+            </h4>
+            <hr />
+          </div>
+          <div class="benefitDiv">
+            <h3>Interactive Learning Experience</h3>
+            <h4>
+              Engage with quizzes, assignments, and peer interactions to
+              solidify your knowledge and improve learning outcomes
+            </h4>
+            <hr />
+          </div>
+          <div class="benefitDiv">
+            <h3>Get Certified & Boost Your Career</h3>
+            <h4>
+              Earn certificates that validate your skills and increase your job
+              opportunities. Showcase your expertise to potential employers.
+            </h4>
+            <hr />
+          </div>
+          <div class="benefitDiv">
+            <h3>Wide Range of Courses</h3>
+            <h4>
+              Access diverse courses across various fields and disciplines, from
+              technology to personal development and more
+            </h4>
+            <hr />
+          </div>
+        </section>
+        <section id="benefitMain">
+          <span>
+            <h1>
+              Key Benefits of Learning<br />
+              with Us
+            </h1>
+            <h2>
+              Explore the unique features that make our platform the perfect
+              choice for your learning journey.
+            </h2>
+          </span>
+          <button>Start Learn Today</button>
+
+          <img src="assets/key-benefit-img.png" alt="benefits image" />
+        </section>
+      </section>
+
+      <section id="exploreSec">
+        <h1>Explore Our Course</h1>
+        <section id="exploreCardSec">
+          <div class="exploreCard">
+            <img
+              src="assets/device-mobile-icon.svg"
+              alt="mobile icon"
+              title="mobile"
+            />
+            <span>
+              <h2>Technology</h2>
+              <h3>20450+ Courses</h3>
+            </span>
+          </div>
+          <div class="exploreCard">
+            <img
+              src="assets/chart-bar-icon.svg"
+              alt="chart icon"
+              title="chart"
+            />
+            <span>
+              <h2>Business</h2>
+              <h3>2150+ Courses</h3>
+            </span>
+          </div>
+          <div class="exploreCard">
+            <img src="assets/wand-icon.svg" alt="wand icon" title="wand" />
+            <span>
+              <h2>Design & Art</h2>
+              <h3>250+ Courses</h3>
+            </span>
+          </div>
+          <div class="exploreCard">
+            <img src="assets/bulb-icon.svg" alt="bulb icon" title="bulb" />
+            <span>
+              <h2>Personal Development</h2>
+              <h3>175+ Courses</h3>
+            </span>
+          </div>
+          <div class="exploreCard">
+            <img src="assets/movie-icon.svg" alt="movie icon" title="movie" />
+            <span>
+              <h2>Photography & Video</h2>
+              <h3>850+ Courses</h3>
+            </span>
+          </div>
+          <div class="exploreCard">
+            <img
+              src="assets/heartbeat-icon.svg"
+              alt="heartbeat icon"
+              title="heartbeat"
+            />
+            <span>
+              <h2>Health & Wellness</h2>
+              <h3>2254+ Courses</h3>
+            </span>
+          </div>
+        </section>
+        <button id="exploreBtn">See all</button>
+      </section>
+
+      <section id="whatSec">
+        <h1>What Our Learners Are Saying</h1>
+        <h2>
+          Hear from students and professionals who’ve transformed their careers
+          <br />and lives through our courses.
+        </h2>
+        <section id="whatScroll">
+          <div id="scrollTrack">
+            <div class="whatCard">
+              <span class="whatBanner">
+                <img
+                  src="assets/learner-avatar-1.png"
+                  alt="learner avatar"
+                  title="avatar"
+                />
+                <span>
+                  <h2>Emily Roberts</h2>
+                  <h3>United States</h3>
+                </span>
+              </span>
+              <p>
+                The courses here have been a game-changer! I transitioned into a
+                data science career confidently thanks to the practical projects
+                and support from instructors.
+              </p>
+            </div>
+            <div class="whatCard">
+              <span class="whatBanner">
+                <img
+                  src="assets/learner-avatar-2.png"
+                  alt="learner avatar"
+                  title="avatar"
+                />
+                <span>
+                  <h2>Mark Thompson</h2>
+                  <h3>India</h3>
+                </span>
+              </span>
+              <p>
+                Amazing learning experience! The instructors are highly
+                knowledgeable, and the platform is easy to navigate. I recommend
+                it to anyone looking to upskill.
+              </p>
+            </div>
+            <div class="whatCard">
+              <span class="whatBanner">
+                <img
+                  src="assets/learner-avatar-3.png"
+                  alt="learner avatar"
+                  title="avatar"
+                />
+                <span>
+                  <h2>Sarah Collins</h2>
+                  <h3>Canada</h3>
+                </span>
+              </span>
+              <p>
+                The quality and depth of content exceeded my expectations. I’ve
+                completed multiple courses, and each one helped me advance my
+                skills and gain certifications.
+              </p>
+            </div>
+            <div class="whatCard">
+              <span class="whatBanner">
+                <img
+                  src="assets/learner-avatar-4.png"
+                  alt="learner avatar"
+                  title="avatar"
+                />
+                <span>
+                  <h2>James Walker</h2>
+                  <h3>United States</h3>
+                </span>
+              </span>
+              <p>
+                The courses here have been a game-changer! I transitioned into a
+                data science career confidently thanks to the practical projects
+                and support from instructors.
+              </p>
+            </div>
+            <div class="whatCard">
+              <span class="whatBanner">
+                <img
+                  src="assets/learner-avatar-5.png"
+                  alt="learner avatar"
+                  title="avatar"
+                />
+                <span>
+                  <h2>Olivia Martinez</h2>
+                  <h3>United Kingdom</h3>
+                </span>
+              </span>
+              <p>
+                I was able to get a promotion at work thanks to the leadership
+                and management courses. The interactive content made learning
+                engaging and effective.
+              </p>
+            </div>
+            <div class="whatCard">
+              <span class="whatBanner">
+                <img
+                  src="assets/learner-avatar-6.png"
+                  alt="learner avatar"
+                  title="avatar"
+                />
+                <span>
+                  <h2>David Johnson</h2>
+                  <h3>United States</h3>
+                </span>
+              </span>
+              <p>
+                The courses here have been a game-changer! I transitioned into a
+                data science career confidently thanks to the practical projects
+                and support from instructors.
+              </p>
+            </div>
+            <div class="whatCard">
+              <span class="whatBanner">
+                <img
+                  src="assets/learner-avatar-7.png"
+                  alt="learner avatar"
+                  title="avatar"
+                />
+                <span>
+                  <h2>Rachel Brown</h2>
+                  <h3>United States</h3>
+                </span>
+              </span>
+              <p>
+                The quality and depth of content exceeded my expectations. I’ve
+                completed multiple courses, and each one helped me advance my
+                skills and gain certifications.
+              </p>
+            </div>
+            <div class="whatCard">
+              <span class="whatBanner">
+                <img
+                  src="assets/learner-avatar-8.png"
+                  alt="learner avatar"
+                  title="avatar"
+                />
+                <span>
+                  <h2>Sophia Turner</h2>
+                  <h3>United Kingdom</h3>
+                </span>
+              </span>
+              <p>
+                I learned so much in such a short time. The flexibility of
+                courses allowed me to study at my own pace and balance work
+                commitments.
+              </p>
+            </div>
+
+            <div class="whatCard">
+              <span class="whatBanner">
+                <img
+                  src="assets/learner-avatar-1.png"
+                  alt="learner avatar"
+                  title="avatar"
+                />
+                <span>
+                  <h2>Emily Roberts</h2>
+                  <h3>United States</h3>
+                </span>
+              </span>
+              <p>
+                The courses here have been a game-changer! I transitioned into a
+                data science career confidently thanks to the practical projects
+                and support from instructors.
+              </p>
+            </div>
+            <div class="whatCard">
+              <span class="whatBanner">
+                <img
+                  src="assets/learner-avatar-2.png"
+                  alt="learner avatar"
+                  title="avatar"
+                />
+                <span>
+                  <h2>Mark Thompson</h2>
+                  <h3>India</h3>
+                </span>
+              </span>
+              <p>
+                Amazing learning experience! The instructors are highly
+                knowledgeable, and the platform is easy to navigate. I recommend
+                it to anyone looking to upskill.
+              </p>
+            </div>
+            <div class="whatCard">
+              <span class="whatBanner">
+                <img
+                  src="assets/learner-avatar-3.png"
+                  alt="learner avatar"
+                  title="avatar"
+                />
+                <span>
+                  <h2>Sarah Collins</h2>
+                  <h3>Canada</h3>
+                </span>
+              </span>
+              <p>
+                The quality and depth of content exceeded my expectations. I’ve
+                completed multiple courses, and each one helped me advance my
+                skills and gain certifications.
+              </p>
+            </div>
+            <div class="whatCard">
+              <span class="whatBanner">
+                <img
+                  src="assets/learner-avatar-4.png"
+                  alt="learner avatar"
+                  title="avatar"
+                />
+                <span>
+                  <h2>James Walker</h2>
+                  <h3>United States</h3>
+                </span>
+              </span>
+              <p>
+                The courses here have been a game-changer! I transitioned into a
+                data science career confidently thanks to the practical projects
+                and support from instructors.
+              </p>
+            </div>
+            <div class="whatCard">
+              <span class="whatBanner">
+                <img
+                  src="assets/learner-avatar-5.png"
+                  alt="learner avatar"
+                  title="avatar"
+                />
+                <span>
+                  <h2>Olivia Martinez</h2>
+                  <h3>United Kingdom</h3>
+                </span>
+              </span>
+              <p>
+                I was able to get a promotion at work thanks to the leadership
+                and management courses. The interactive content made learning
+                engaging and effective.
+              </p>
+            </div>
+            <div class="whatCard">
+              <span class="whatBanner">
+                <img
+                  src="assets/learner-avatar-6.png"
+                  alt="learner avatar"
+                  title="avatar"
+                />
+                <span>
+                  <h2>David Johnson</h2>
+                  <h3>United States</h3>
+                </span>
+              </span>
+              <p>
+                The courses here have been a game-changer! I transitioned into a
+                data science career confidently thanks to the practical projects
+                and support from instructors.
+              </p>
+            </div>
+            <div class="whatCard">
+              <span class="whatBanner">
+                <img
+                  src="assets/learner-avatar-7.png"
+                  alt="learner avatar"
+                  title="avatar"
+                />
+                <span>
+                  <h2>Rachel Brown</h2>
+                  <h3>United States</h3>
+                </span>
+              </span>
+              <p>
+                The quality and depth of content exceeded my expectations. I’ve
+                completed multiple courses, and each one helped me advance my
+                skills and gain certifications.
+              </p>
+            </div>
+            <div class="whatCard">
+              <span class="whatBanner">
+                <img
+                  src="assets/learner-avatar-8.png"
+                  alt="learner avatar"
+                  title="avatar"
+                />
+                <span>
+                  <h2>Sophia Turner</h2>
+                  <h3>United Kingdom</h3>
+                </span>
+              </span>
+              <p>
+                I learned so much in such a short time. The flexibility of
+                courses allowed me to study at my own pace and balance work
+                commitments.
+              </p>
+            </div>
+          </div>
+        </section>
+      </section>
+    </main>
+    <footer>
+      <section id="footerInfo">
+        <span>
+          <h2>Popular Courses</h2>
+          <ul>
+            <li>Python for Data Science</li>
+            <li>Digital Marketing Masterclass</li>
+            <li>Project Management Professional (PMP)</li>
+            <li>Graphic Design for Beginners</li>
+          </ul>
+        </span>
+        <span>
+          <h2>Popular Categories</h2>
+          <ul>
+            <li>Technology</li>
+            <li>IT & Software</li>
+            <li>Art & Design</li>
+            <li>Marketing</li>
+            <li>Health & Fitness</li>
+            <li>Personal Development</li>
+            <li>Math & Logic</li>
+            <li>Language Learning</li>
+            <li>All Categories</li>
+          </ul>
+        </span>
+        <span>
+          <h2>About Company</h2>
+          <ul>
+            <li>About us</li>
+            <li>What We Offer</li>
+            <li>Careers</li>
+            <li>Leadership</li>
+            <li>For Enterprise</li>
+            <li>Become a Partner</li>
+            <li>Press & Media</li>
+            <li>Contact Us</li>
+          </ul>
+        </span>
+        <span>
+          <h2>Community</h2>
+          <ul>
+            <li>Instructor Community</li>
+            <li>Learner Stories</li>
+            <li>Forums & Discussions</li>
+            <li>Events & Webinars</li>
+            <li>Partnerships</li>
+            <li>Affiliate Program</li>
+          </ul>
+        </span>
+      </section>
+      <hr />
+      <section id="footLast">
+        <p>&copy;2026 SkillShare Academy. All rights reserved.</p>
+        <div id="footIcons">
+          <img src="assets/instagram.svg" alt="instagram" title="instagram" />
+          <img src="assets/youtube.svg" alt="youtube" title="youtube" />
+          <img src="assets/telegram.svg" alt="telegram" title="telegram" />
+          <img src="assets/tiktok.svg" alt="tiktok" title="tiktok" />
+          <img src="assets/facebook.svg" alt="facebook" title="facebook" />
+          <img src="assets/github.svg" alt="github" title="github" />
+        </div>
+      </section>
+    </footer>
+  </body>
+</html>
