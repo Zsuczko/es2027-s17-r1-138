@@ -149,22 +149,31 @@ function App() {
             ➡️
           </button>
           <section
-            className="grid grid-cols-31 auto-rows-auto text-sm"
+            className=" grid relative grid-cols-31 auto-rows-auto text-sm"
             style={{
               width: `${tableSize}em`,
+              // backgroundImage: `
+              //   repeating-linear-gradient(
+              //     to right,
+              //     transparent 0,
+              //     transparent calc(100% / 31 * 5),
+              //     rgba(0,0,0,0.04) calc(100% / 31 * 5),
+              //     rgba(0,0,0,0.04) calc(100% / 31 * 7)
+              //   )
+              // `,
             }}
           >
             {[...Array(31)].map((_, i) => (
               <div
                 key={i}
-                className={`row-start-1 text-center border border-gray-300 ${days[i % 7] === "SAT" || days[i % 7] === "SUN" ? "text-red-700" : ""}`}
+                className={`row-start-1 z-10 text-center border border-gray-300 ${days[i % 7] === "SAT" || days[i % 7] === "SUN" ? "text-red-700" : ""}`}
               >
                 <p>{i + 1}</p>
                 <p>{days[i % 7]}</p>
               </div>
             ))}
             {courses.map((group, groupIndex) =>
-              group.map((course) => {
+              group.map((course, courseIndex) => {
                 if (
                   searchTerm !== "" &&
                   !course.courseNameEnglish
@@ -176,7 +185,7 @@ function App() {
                 const endDate = new Date(course.endDate);
                 return (
                   <div
-                    className="p-1"
+                    className={`p-1 z-10`}
                     style={{
                       gridRowStart: groupIndex + 2,
                       gridColumnStart: startDate.getDate(),
@@ -184,7 +193,7 @@ function App() {
                     }}
                   >
                     <div
-                      className={`h-full border-2 hover:scale-[101%] border-gray-200 p-2 truncate w-full border-l-4 rounded-lg ${course.category === "Technology & Software" ? "border-l-green-700" : "border-l-amber-500"}`}
+                      className={`h-full border-2 z-10 hover:scale-[101%] border-gray-200 p-2 truncate w-full border-l-4 rounded-lg ${course.category === "Technology & Software" ? "border-l-green-700" : "border-l-amber-500"}`}
                     >
                       <Tooltip
                         text="Vami"
@@ -197,8 +206,27 @@ function App() {
                           {String(endDate.getMinutes()).padStart(2, "0")}
                         </p>
                       </Tooltip>
-                      <p className="turncate w-full">
-                        {/* <span>{course.language === "English" ? "us" : ""}</span> */}
+                      <p className="truncate w-full flex gap-2 items-center">
+                        <span>
+                          {course.language === "English" ? (
+                            <img
+                              src="/assets/flags/Flag_of_the_United_States.svg"
+                              className="w-5"
+                            ></img>
+                          ) : course.language === "Hungarian" ? (
+                            <img
+                              src="/assets/flags/Flag_of_Hungary.svg"
+                              className="w-5"
+                              alt=""
+                            />
+                          ) : (
+                            <img
+                              src="/assets/flags/Flag_of_the_People's_Republic_of_China.svg"
+                              className="w-5"
+                              alt=""
+                            />
+                          )}
+                        </span>
                         <Tooltip text={course.courseName}>
                           <span className="z-0">{course.courseName}</span>
                         </Tooltip>

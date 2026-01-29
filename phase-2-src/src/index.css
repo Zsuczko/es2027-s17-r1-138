@@ -1,5 +1,6 @@
 @import "tailwindcss";
 
+
 body{
     overflow-x: hidden;
 }
@@ -12,3 +13,5 @@ body{
 .chart::-webkit-scrollbar {
     display: none;
 } 
+
+
