@@ -31,6 +31,10 @@ body {
     color: white;
     padding: 0.7em 1.5em;
     width: fit-content;
+    transition: ease 0.3s;
+}
+.avgBtn:hover{
+    background-color: #504bea;
 }
 
 /* Header */
@@ -52,7 +56,11 @@ header{
     color: white;
     width: auto;
 }
-
+@media (max-width: 480px) {
+    #discountSec{
+        font-size: 0.9em;
+    }
+}
 /* ---DiscountEnd--- */
 
 /* Search */
@@ -429,7 +437,7 @@ input[type=radio]::before{
 .trendingCard{
 
     border: #e8e6e6 2px solid;
-    width: 15em;
+    width: 20em;
     padding: 0.6em;
     border-radius: 0.5em;
     display: flex;
@@ -568,15 +576,17 @@ input[type=radio]::before{
     margin-right: 0.5em;
 }
 
-
 @media (max-width: 480px) {
-    #dealSec{
-        flex-direction:column;
+    #dealSec {
+        flex-direction: column;
+    }
 
+    #bestDeal {
+        flex-direction: column;
+        width: 100%;
     }
-    #bestDeal{
-        overflow-x: scroll;
-    }
+
+    #bestDeal .trendingCard img{ display: block; }
 }
 
 /* ---TopDealSectionEnd--- */
@@ -638,6 +648,11 @@ input[type=radio]::before{
         background-color: white;
         padding: 0.5em 1.3em;
         width: fit-content;
+        transition: ease 0.3s;
+    }
+    >button:hover{
+        background-color: var(--primaryBlue);
+        color: white;
     }
     >img{
         border-radius: 1em;
@@ -729,7 +744,12 @@ input[type=radio]::before{
     padding: 0.5em 1.4em;
     border-radius: 1em;
     border: none;
+    transition: ease 0.3s;
     color: var(--primaryBlue);
+}
+
+#exploreBtn:hover{
+    background-color: white;
 }
 
 @media (max-width: 480px) {
@@ -855,6 +875,25 @@ input[type=radio]::before{
         >h2{
             font-size: 1em;
         }
+    }
+
+    .whatCard{
+        display: none;
+    }
+
+    .whatCard:nth-child(1){
+        display: block;
+    }
+    .whatCard:nth-child(2){
+        display: block;
+    }
+    #scrollTrack{
+        animation: none;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        margin: auto;
     }
 }
 
