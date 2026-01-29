@@ -6,10 +6,13 @@
 
 
 *{
-    font-size: 1.04em;
+    font-size: 1.01em;
     padding: 0;
     margin: 0;
     /* overflow-x: hidden; */
+}
+body {
+  font-family: 'Poppins', sans-serif;
 }
 
 @media (max-width: 480px) {
@@ -322,7 +325,11 @@ nav{
         padding: 1em;
     }
     #trustLogo{
-        overflow-x: auto;
+        overflow-x:scroll;
+        >img{
+            width: auto;
+            height: auto;
+        }
     }
 }
 
