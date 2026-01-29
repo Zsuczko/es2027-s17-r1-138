@@ -6,6 +6,7 @@ import tailwindcss from "@tailwindcss/vite";
 export default defineConfig({
   plugins: [react(), tailwindcss()],
   build: {
-    outDir: "phase-2",
+    outDir: "../phase-2",
+    emptyOutDir: true,
   },
 });
