@@ -487,6 +487,37 @@ input[type=radio]::before{
 .trendAvatarGroup .trendAvatar:nth-child(n+2){
     margin-left: -1em;
 }
+@media (max-width: 480px) {
+
+    #trendingSec{
+    padding: 3em 2em;
+    gap: 1em;
+    >span{
+
+        >h1{
+            font-size: 1.3em;
+        }
+    }
+}
+    #technology:checked ~ #trendingCoursesTechnology{
+        flex-direction: column;
+        align-items: center;
+    }
+    #design:checked ~ #trendingCoursesDesign{
+        flex-direction: column;
+        align-items: center;
+    } 
+
+    .trendingCard:nth-child(1) img{
+        display: block;
+    }
+    .trendingCard{
+        >img{
+
+            display: none;
+        }
+    }
+}
 
 
 /* ---TrendingSectionEnd--- */
