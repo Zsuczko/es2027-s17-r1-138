@@ -173,10 +173,13 @@ function App() {
               </div>
             ))}
             {courses.map((group, groupIndex) =>
-              group.map((course, courseIndex) => {
+              group.map((course) => {
                 if (
                   searchTerm !== "" &&
                   !course.courseNameEnglish
+                    .toLowerCase()
+                    .includes(searchTerm.toLowerCase()) &&
+                  !course.courseName
                     .toLowerCase()
                     .includes(searchTerm.toLowerCase())
                 )
@@ -184,7 +187,8 @@ function App() {
                 const startDate = new Date(course.startDate);
                 const endDate = new Date(course.endDate);
                 return (
-                  <div
+                  <a
+                    href="#"
                     className={`p-1 z-10`}
                     style={{
                       gridRowStart: groupIndex + 2,
@@ -193,42 +197,51 @@ function App() {
                     }}
                   >
                     <div
-                      className={`h-full border-2 z-10 hover:scale-[101%] border-gray-200 p-2 truncate w-full border-l-4 rounded-lg ${course.category === "Technology & Software" ? "border-l-green-700" : "border-l-amber-500"}`}
+                      className={`h-full border-2 z-10 hover:scale-[101%] hover:border-blue-400  border-gray-200 p-2 truncate w-full border-l-4 rounded-lg ${course.category === "Technology & Software" ? "border-l-green-700 hover:border-l-green-700" : "border-l-amber-500 hover:border-l-amber-500"}`}
                     >
-                      <Tooltip
-                        text="Vami"
-                        // label={<button>Add to Calendar</button>}
-                      >
-                        <p className="text-blue-500 p-2 bg-gray-100 w-fit rounded-3xl">
-                          {startDate.getHours()}:
-                          {String(startDate.getMinutes()).padStart(2, "0")}-
-                          {endDate.getHours()}:
-                          {String(endDate.getMinutes()).padStart(2, "0")}
-                        </p>
-                      </Tooltip>
-                      <p className="truncate w-full flex gap-2 items-center">
-                        <span>
-                          {course.language === "English" ? (
-                            <img
-                              src="/assets/flags/Flag_of_the_United_States.svg"
-                              className="w-5"
-                            ></img>
-                          ) : course.language === "Hungarian" ? (
-                            <img
-                              src="/assets/flags/Flag_of_Hungary.svg"
-                              className="w-5"
-                              alt=""
-                            />
-                          ) : (
-                            <img
-                              src="/assets/flags/Flag_of_the_People's_Republic_of_China.svg"
-                              className="w-5"
-                              alt=""
-                            />
-                          )}
-                        </span>
+                      <div>
+                        <Tooltip
+                          text={`${startDate.getFullYear()}-${startDate.getMonth()}-${startDate.getDate()} ${startDate.getHours()}:${String(startDate.getMinutes()).padStart(2, "0")}-${startDate.getFullYear()}-${endDate.getMonth()}-${endDate.getDate()} ${endDate.getHours()}:${String(endDate.getMinutes()).padStart(2, "0")}`}
+                          // text={`${startDate}-${endDate}`}
+                          label={
+                            <button className="border-2 border-black p-1 bg-white rounded-2xl">
+                              Add to Calendar
+                            </button>
+                          }
+                        >
+                          <p className="text-blue-500 p-2 bg-gray-100 w-fit rounded-3xl">
+                            {startDate.getHours()}:
+                            {String(startDate.getMinutes()).padStart(2, "0")}-
+                            {endDate.getHours()}:
+                            {String(endDate.getMinutes()).padStart(2, "0")}
+                          </p>
+                        </Tooltip>
+                      </div>
+                      <p>
                         <Tooltip text={course.courseName}>
-                          <span className="z-0">{course.courseName}</span>
+                          <p className="truncate w-full flex gap-2 items-center">
+                            <span>
+                              {course.language === "English" ? (
+                                <img
+                                  src="/assets/flags/Flag_of_the_United_States.svg"
+                                  className="w-5"
+                                ></img>
+                              ) : course.language === "Hungarian" ? (
+                                <img
+                                  src="/assets/flags/Flag_of_Hungary.svg"
+                                  className="w-5"
+                                  alt=""
+                                />
+                              ) : (
+                                <img
+                                  src="/assets/flags/Flag_of_the_People's_Republic_of_China.svg"
+                                  className="w-5"
+                                  alt=""
+                                />
+                              )}
+                            </span>
+                            <span className="z-0">{course.courseName}</span>
+                          </p>
                         </Tooltip>
                       </p>
                       {course.language === "English" ? (
@@ -259,7 +272,7 @@ function App() {
                       </p>
                       <p>👤 {course.instructor}</p>
                     </div>
-                  </div>
+                  </a>
                 );
               }),
             )}

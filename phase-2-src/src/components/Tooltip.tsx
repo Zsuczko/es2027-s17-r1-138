@@ -1,44 +1,58 @@
-import React, { useState } from "react";
+import { useRef, useState, useLayoutEffect } from "react";
+import { createPortal } from "react-dom";
 
 interface TooltipProps {
   text: string;
-  label?: React.ReactNode;
   children: React.ReactNode;
+  label?: React.ReactNode;
 }
 
-const Tooltip: React.FC<TooltipProps> = ({ text, children, label }) => {
+export default function Tooltip({ text, children, label }: TooltipProps) {
+  const ref = useRef<HTMLSpanElement>(null);
   const [visible, setVisible] = useState(false);
+  const [rect, setRect] = useState<DOMRect | null>(null);
+
+  useLayoutEffect(() => {
+    if (visible && ref.current) {
+      setRect(ref.current.getBoundingClientRect());
+    }
+  }, [visible]);
 
   return (
-    <div
-      style={{ position: "relative", display: "inline-block" }}
-      onMouseEnter={() => setVisible(true)}
-      onMouseLeave={() => setVisible(false)}
-    >
-      {children}
+    <>
+      <span
+        ref={ref}
+        className="inline-block"
+        onMouseEnter={() => setVisible(true)}
+        onMouseLeave={() => setVisible(false)}
+      >
+        {children}
+      </span>
 
-      {visible && (
-        <>
+      {visible &&
+        rect &&
+        createPortal(
           <div
-            className="bg-gray-100 rounded-2xl"
+            className="flex flex-col"
             style={{
-              position: "absolute",
-              bottom: "100%",
-              left: "50%",
-              transform: "translateX(-50%)",
-              marginBottom: "0.3em",
-              padding: "0.3em 0.5em",
+              position: "fixed",
+              top: rect.top - 6,
+              left: rect.left + rect.width / 2,
+              transform: "translate(-50%, -100%)",
+              background: "#f3f4f6",
+              borderRadius: "1em",
+              padding: "0.6em 1em",
+              fontSize: "0.8em",
               whiteSpace: "nowrap",
-              zIndex: 1000,
+              zIndex: 999999,
+              pointerEvents: "none",
             }}
           >
             {text}
-            {/* {label} */}
-          </div>
-        </>
-      )}
-    </div>
+            {label}
+          </div>,
+          document.body,
+        )}
+    </>
   );
-};
-
-export default Tooltip;
+}
